@@ -27,6 +27,8 @@ class Task(BaseModel):
     due_date: datetime.date
     priority: PriorityEnum
     status: StatusEnum = StatusEnum.not_executed
+    class Config:
+        validate_assignment = True
 
 Tasks = TypeAdapter(list[Task])
 
